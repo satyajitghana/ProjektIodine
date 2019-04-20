@@ -40,21 +40,9 @@ export class MarksPredictorComponent implements OnInit {
 
   async train(): Promise<any> {
     this.linearModel = tf.sequential();
-    // this.linearModel.add(tf.layers.dense({units: 1, inputShape: [1]}));
-    // this.linearModel.compile({loss: 'meanSquaredError', optimizer: 'sgd'});
-
-    // const xs = tf.tensor1d([3.2, 4.4, 5.5]);
-    // const ys = tf.tensor1d([1.6, 2.7, 3.5]);
-
-    // await this.linearModel.fit(xs, ys);
 
     this.linearModel.add(tf.layers.dense({ units: 1, inputShape: [1] }));
-    // Prep for training
     this.linearModel.compile({ loss: 'meanSquaredError', optimizer: 'sgd' });
-
-    // train -- the higher the number the more accurate you'll get (but longer run time)
-
-    console.log('Model Trained');
   }
 
   predict(val: string) {
@@ -97,6 +85,7 @@ export class MarksPredictorComponent implements OnInit {
       const tts = [parseInt(subject.tt1, 10), parseInt(subject.tt2, 10), parseInt(subject.tt3, 10)];
       tts.sort();
       tts.reverse();
+
       const submarks = [tts[0] * 100 / 25, tts[1] * 100 / 25, parseInt(subject.a1, 10) * 100 / 25, parseInt(subject.a2, 10) * 100 / 25];
       marksArr.push(submarks);
 
@@ -134,7 +123,6 @@ export class MarksPredictorComponent implements OnInit {
       this.resultsText = 'Tum rehne do, tumse na ho payega 💩';
     }
 
-    // this.frame.show();
     console.log(predictedMarks);
     this.frame.show();
     this.running = false;
