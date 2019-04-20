@@ -11,12 +11,14 @@ import { MarksPredictorComponent } from './marks-predictor/marks-predictor.compo
 import { AttendancePredictorComponent } from './attendance-predictor/attendance-predictor.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
+import { InstructionsComponent } from './instructions/instructions.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MarksPredictorComponent,
-    AttendancePredictorComponent
+    AttendancePredictorComponent,
+    InstructionsComponent
   ],
   imports: [
     BrowserModule,
