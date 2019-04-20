@@ -1,0 +1,4 @@
++ rollup@1.10.1
+added 3 packages from 41 contributors and audited 41238 packages in 16.076s
+found 2 vulnerabilities (1 low, 1 high)
+  run `npm audit fix` to fix them, or `npm audit` for details

@@ -1,0 +1,38 @@
+<!--Navbar-->
+<!-- <div class="container"> -->
+  <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark unique-color scrolling-navbar"
+    [containerInside]="true">
+  <!-- fixed-top -->
+
+    <!-- Navbar brand -->
+    <mdb-navbar-brand>
+      <a class="navbar-brand" href="#">
+        <span class="px-1">
+          <mdb-icon fas icon="cloud" size="2x"></mdb-icon>
+        </span>
+        <span class="h3 text-monospace">
+          <strong>
+          ProjektIodine</strong></span>
+      </a>
+    </mdb-navbar-brand>
+
+    <!-- Collapsible content -->
+    <links>
+      <!-- Links -->
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+          <a class="nav-link waves-light text-monospace h4-responsive" [routerLink]="['/marks-predictor']" mdbWavesEffect>
+            Marks-Predictor 👻
+            <!-- <span class="sr-only">(current)</span> -->
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link waves-light text-monospace h4-responsive" [routerLink]="['/attendance-predictor']" mdbWavesEffect>Attendance-Predictor 🎓</a>
+        </li>
+      </ul>
+
+    </links>
+    <!-- Collapsible content -->
+  </mdb-navbar>
+  <!--/.Navbar-->
+<!-- </div> -->

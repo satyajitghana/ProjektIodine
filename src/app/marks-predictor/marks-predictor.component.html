@@ -1,0 +1,152 @@
+<div class="view">
+  <div class="container">
+    <div class="row">
+      <div class="col my-5 align-self-center ">
+        <!--Card-->
+        <mdb-card class="wow fadeInUp hoverable" data-wow-delay="0.6s">
+          <mdb-card-body class="text-center">
+            <!--Card content-->
+            <!--Title-->
+            <p class="h1 display-1 card-title">
+              <strong>Marks Predictor 👻</strong>
+            </p>
+
+            <hr class="col">
+            <form [formGroup]="marksForm">
+              <div formArrayName="marks">
+                <div *ngFor="let mark of _marksForm.controls; let i=index">
+                  <form [formGroupName]="i">
+                    <div class="input-group input-group-lg my-2">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-lg">Course Name/Code 📚 </span>
+                      </div>
+                      <input type="text" class="form-control mr-2" placeholder="Subject" formControlName="subject"
+                        aria-describedby="inputGroup-sizing-lg">
+                      <div class="input-group-append">
+                        <button mdbBtn type="button" size="md" class="danger-color-dark white-text m-0 px-3 py-2"
+                          (click)="deleteMarksForm(i)" mdbWavesEffect>
+                          <!-- <mdb-icon fas icon="minus-square"></mdb-icon> -->
+                          Delete 👿
+                        </button>
+                      </div>
+                    </div>
+                    <div class="input-group input-group-lg my-2">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-lg">TT1 📕 </span>
+                      </div>
+                      <input type="text" class="form-control mr-2" placeholder="TT1 Marks" formControlName="tt1"
+                        aria-describedby="inputGroup-sizing-lg">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-lg">TT2 📗 </span>
+                      </div>
+                      <input type="text" class="form-control mr-2" placeholder="TT2 Marks" formControlName="tt2"
+                        aria-describedby="inputGroup-sizing-lg">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-lg">TT3 📘 </span>
+                      </div>
+                      <input type="text" class="form-control mr-2" placeholder="TT3 Marks" formControlName="tt3"
+                        aria-describedby="inputGroup-sizing-lg">
+                    </div>
+
+                    <div class="input-group input-group-lg my-2">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-lg">A1 📙 </span>
+                      </div>
+                      <input type="text" class="form-control mr-2" placeholder="A1 Marks" formControlName="a1"
+                        aria-describedby="inputGroup-sizing-lg">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-lg">A2 📗 </span>
+                      </div>
+                      <input type="text" class="form-control mr-2" placeholder="A2 Marks" formControlName="a2"
+                        aria-describedby="inputGroup-sizing-lg">
+                    </div>
+                  </form>
+                  <hr>
+                </div>
+              </div>
+            </form>
+
+            <button mdbBtn type="button" size="lg" class="unique-color hoverable white-text" (click)="addMarksForm()"
+              mdbWavesEffect>
+              <mdb-icon fas icon="plus"></mdb-icon> Add Subject
+            </button>
+
+            <!-- {{ this.marksForm.value | json }} -->
+
+            <!-- TensorFlow says {{ prediction }}
+
+<input type="number" (change)="predict($event.target.value)"> -->
+
+            <!-- <mdb-card-text>
+            Sed ut perspiciatis unde omnis iste natus sit voluptatem accusantium doloremque laudantium, totam rem
+            aperiam.
+          </mdb-card-text> -->
+
+            <button mdbBtn type="button" color="elegant" size="lg" block="true" mdbWavesEffect class="flex-center"
+              (click)="predictMarks()">
+              <span [hidden]="!running" class="spinner-grow spinner-grow-lg mx-3" role="status"
+                aria-hidden="true"></span>
+              <h3 class="h2-responsive">Predict 🙌🙌🙌</h3>
+            </button>
+
+            <div class="flex-center h3 my-2" [hidden]="!running" mdbWavesEffect>This will take a moment so sit back and relax 😎</div>
+
+            <div mdbModal #frame="mdbModal" class="modal fade" id="frameModalTop" tabindex="-1" role="dialog"
+              aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-notify modal-info" role="document">
+                <!--Content-->
+                <div class="modal-content text-center">
+                  <!--Header-->
+                  <div class="modal-header d-flex justify-content-center">
+                    <!-- <p class="heading display-3">Results</p> -->
+                    <p class="display-3 white-text">
+                      <strong>Results 🤔</strong>
+                    </p>
+                  </div>
+
+                  <!--Body-->
+                  <div class="modal-body">
+                    <!-- <i class="fas fa-bell fa-4x animated rotateIn mb-4"></i>
+                    <p>Do you want to receive the push notification about the newest posts?</p> -->
+                    <table mdbTable>
+                      <thead>
+                        <tr>
+                          <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr mdbTableCol *ngFor="let el of elements; index as i" [attr.data-index]="i">
+                          <th scope="row">{{i+1}}</th>
+                          <td>{{el.subject}}</td>
+                          <td>{{el.predicted}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <div class="d-flex justify-content-center px-2">
+                    <p class="display-3">
+                      {{resultsText}}
+                    </p>
+                  </div>
+                  <!--Footer-->
+                  <!-- <div class="modal-footer justify-content-center">
+                    <a href="https://mdbootstrap.com/products/angular-ui-kit/" mdbBtn color="primary"
+                      class="waves-light" mdbWavesEffect>Yes</a>
+                    <a type="button" mdbBtn color="primary" outline="true" class="waves-light" mdbWavesEffect
+                      data-dismiss="modal" (click)="frame.hide()">No</a>
+                  </div> -->
+                </div>
+                <!--/.Content-->
+              </div>
+            </div>
+
+          </mdb-card-body>
+          <!--/.Card content-->
+        </mdb-card>
+        <!--/.Card-->
+      </div>
+
+    </div>
+  </div>
+</div>

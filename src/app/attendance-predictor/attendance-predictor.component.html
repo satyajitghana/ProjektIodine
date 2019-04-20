@@ -1,0 +1,98 @@
+<div class="view">
+    <div class="container">
+      <div class="row">
+        <div class="col my-5 align-self-center ">
+          <!--Card-->
+          <mdb-card class="wow fadeInUp hoverable" data-wow-delay="0.6s">
+            <mdb-card-body class="text-center">
+              <!--Card content-->
+              <!--Title-->
+              <p class="h1 display-1 card-title">
+                <strong>Attendance Predictor 🎓</strong>
+              </p>
+
+              <hr>
+
+              <form [formGroup]="attendanceForm">
+                  <div class="input-group input-group-lg my-2">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-lg">Classes Attended 🌒 </span>
+                      </div>
+                      <input type="number" class="form-control mr-2" placeholder="" formControlName="attended"
+                        aria-describedby="inputGroup-sizing-lg">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-lg">Current Total Classes 🌖 </span>
+                      </div>
+                      <input type="number" class="form-control mr-2" placeholder="" formControlName="currentTotalClasses"
+                        aria-describedby="inputGroup-sizing-lg">
+                    </div>
+                    <div class="input-group input-group-lg my-2">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="inputGroup-sizing-lg">Target Percentage 🎯 </span>
+                        </div>
+                        <input type="number" class="form-control mr-2" placeholder="" formControlName="targetPercentage"
+                          aria-describedby="inputGroup-sizing-lg">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="inputGroup-sizing-lg">Total Classes 🔵 </span>
+                        </div>
+                        <input type="number" class="form-control mr-2" placeholder="" formControlName="totalClasses"
+                          aria-describedby="inputGroup-sizing-lg">
+                      </div>
+              </form>
+  
+              <button mdbBtn type="button" color="elegant" size="lg" block="true" mdbWavesEffect class="flex-center"
+                (click)="predictAttendance()">
+                <h3 class="h2-responsive">Predict 🙌🙌🙌</h3>
+              </button>
+
+              <div mdbModal #frame="mdbModal" class="modal fade" id="frameModalTop" tabindex="-1" role="dialog"
+              aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-notify modal-info" role="document">
+                <!--Content-->
+                <div class="modal-content text-center">
+                  <!--Header-->
+                  <div class="modal-header d-flex justify-content-center">
+                    <!-- <p class="heading display-3">Results</p> -->
+                    <p class="display-3 white-text">
+                      <strong>Results 😛</strong>
+                    </p>
+                  </div>
+
+                  <!--Body-->
+                  <div class="modal-body">
+                      <div class="d-flex justify-content-center px-2">
+                          <p class="display-3">
+                              <ng-container *ngIf="isFeasible; else elseTemplate">
+                                  You need to attend {{toAttend}} more classes to get {{attendanceForm.value.targetPercentage}}% Attendance
+                              </ng-container>
+                              <ng-template #elseTemplate>
+                                Bad News 😥😥😥 this is not feasible
+                              </ng-template>
+                          </p>
+                        </div>
+                    
+                  </div>
+
+
+                  <!--Footer-->
+                  <!-- <div class="modal-footer justify-content-center">
+                    <a href="https://mdbootstrap.com/products/angular-ui-kit/" mdbBtn color="primary"
+                      class="waves-light" mdbWavesEffect>Yes</a>
+                    <a type="button" mdbBtn color="primary" outline="true" class="waves-light" mdbWavesEffect
+                      data-dismiss="modal" (click)="frame.hide()">No</a>
+                  </div> -->
+                </div>
+                <!--/.Content-->
+              </div>
+            </div>
+  
+            </mdb-card-body>
+            <!--/.Card content-->
+          </mdb-card>
+          <!--/.Card-->
+        </div>
+  
+      </div>
+    </div>
+  </div>
+  
