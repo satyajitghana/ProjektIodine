@@ -109,23 +109,35 @@ export class MarksPredictorComponent implements OnInit {
 
     this.totalPercentage /= this.elements.length;
 
+    const greater90 = ['Bhai Party \n🎉👏', 'Kya baat hai aapke toh maze hee maze 😏😏😏'];
+    const greater80 = ['Waaaaaaah \n🎊✨', 'Sahi hai tera toh, maze kar 😂😂'];
+    const greater50 = ['Padhna Shuru Karde \n😐😐😐', 'PUBG Khelna band kar, padhle jaake lo** 😒😒😒'];
+    const less40 = ['Tum rehne do, tumse na ho payega 💩', 'kahin chullu bhar paani mil jaaye toh wahan jaake dub marna 💀💀'];
     if (this.totalPercentage > 90) {
-      this.resultsText = 'Bhai Party \n🎉👏';
+      this.resultsText = this.randomItem(greater90);
+      // 'Bhai Party \n🎉👏';
     } else if (this.totalPercentage > 80) {
-      this.resultsText = 'Waaaaaaah \n🎊✨';
+      this.resultsText = this.randomItem(greater80);
+      // 'Waaaaaaah \n🎊✨';
     } else if (this.totalPercentage > 70) {
       this.resultsText = 'Nice \n😊';
     } else if (this.totalPercentage > 50) {
-      this.resultsText = 'Padhna Shuru Karde \n😐😐😐';
+      this.resultsText = this.randomItem(greater50);
+      // 'Padhna Shuru Karde \n😐😐😐';
     } else if (this.totalPercentage > 40) {
       this.resultsText = 'Well umm i dont\'t know what to say 😂😂😂';
     } else {
-      this.resultsText = 'Tum rehne do, tumse na ho payega 💩';
+      this.resultsText = this.randomItem(less40);
+      // 'Tum rehne do, tumse na ho payega 💩';
     }
 
     console.log(predictedMarks);
     this.frame.show();
     this.running = false;
+  }
+
+  randomItem(items) {
+    return items[Math.floor(Math.random() * items.length)];
   }
 
 }
