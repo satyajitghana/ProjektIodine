@@ -3,7 +3,7 @@
       <div class="row">
         <div class="col my-5 align-self-center ">
           <!--Card-->
-          <mdb-card class="wow fadeInUp hoverable" data-wow-delay="0.6s">
+          <mdb-card class="wow fadeInUp hoverable" data-wow-delay="0.3s">
             <mdb-card-body class="text-center">
               <!--Card content-->
               <!--Title-->
@@ -61,26 +61,20 @@
                   <!--Body-->
                   <div class="modal-body">
                       <div class="d-flex justify-content-center px-2">
-                          <p class="display-3">
+                          <p class="display-4">
                               <ng-container *ngIf="isFeasible; else elseTemplate">
-                                  You need to attend {{toAttend}} more classes to get {{attendanceForm.value.targetPercentage}}% Attendance
+                                  You need to attend {{toAttend}} more classes to get {{attendanceForm.value.targetPercentage}}% Attendance, baaki ke {{attendanceForm.value.totalClasses - toAttend}} bunk 😍.
                               </ng-container>
                               <ng-template #elseTemplate>
-                                Bad News 😥😥😥 this is not feasible
+                                Bad News 😥😥😥 this is not feasible, Medical karwa le agar time hai toh. <br>
+                                Contact +91-8373984982 for further assistance.
+             
                               </ng-template>
                           </p>
                         </div>
                     
                   </div>
 
-
-                  <!--Footer-->
-                  <!-- <div class="modal-footer justify-content-center">
-                    <a href="https://mdbootstrap.com/products/angular-ui-kit/" mdbBtn color="primary"
-                      class="waves-light" mdbWavesEffect>Yes</a>
-                    <a type="button" mdbBtn color="primary" outline="true" class="waves-light" mdbWavesEffect
-                      data-dismiss="modal" (click)="frame.hide()">No</a>
-                  </div> -->
                 </div>
                 <!--/.Content-->
               </div>

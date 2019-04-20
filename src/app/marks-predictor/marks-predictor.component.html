@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col my-5 align-self-center ">
         <!--Card-->
-        <mdb-card class="wow fadeInUp hoverable" data-wow-delay="0.6s">
+        <mdb-card class="wow fadeInUp hoverable" data-wow-delay="0.3s">
           <mdb-card-body class="text-center">
             <!--Card content-->
             <!--Title-->
@@ -71,17 +71,6 @@
               <mdb-icon fas icon="plus"></mdb-icon> Add Subject
             </button>
 
-            <!-- {{ this.marksForm.value | json }} -->
-
-            <!-- TensorFlow says {{ prediction }}
-
-<input type="number" (change)="predict($event.target.value)"> -->
-
-            <!-- <mdb-card-text>
-            Sed ut perspiciatis unde omnis iste natus sit voluptatem accusantium doloremque laudantium, totam rem
-            aperiam.
-          </mdb-card-text> -->
-
             <button mdbBtn type="button" color="elegant" size="lg" block="true" mdbWavesEffect class="flex-center"
               (click)="predictMarks()">
               <span [hidden]="!running" class="spinner-grow spinner-grow-lg mx-3" role="status"
@@ -129,13 +118,6 @@
                       {{resultsText}}
                     </p>
                   </div>
-                  <!--Footer-->
-                  <!-- <div class="modal-footer justify-content-center">
-                    <a href="https://mdbootstrap.com/products/angular-ui-kit/" mdbBtn color="primary"
-                      class="waves-light" mdbWavesEffect>Yes</a>
-                    <a type="button" mdbBtn color="primary" outline="true" class="waves-light" mdbWavesEffect
-                      data-dismiss="modal" (click)="frame.hide()">No</a>
-                  </div> -->
                 </div>
                 <!--/.Content-->
               </div>
