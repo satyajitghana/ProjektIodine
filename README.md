@@ -16,6 +16,7 @@ Explain your solution and how your problem solving approach. You can give diagra
 
 * Tensorflow.js
 * Angular 7
+* Bootstrap
 * HTML
 * CSS
 * SCSS

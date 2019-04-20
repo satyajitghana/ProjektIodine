@@ -130,6 +130,8 @@ export class MarksPredictorComponent implements OnInit {
       this.resultsText = 'Padhna Shuru Karde \n😐😐😐';
     } else if (this.totalPercentage > 40) {
       this.resultsText = 'Well umm i dont\'t know what to say';
+    } else {
+      this.resultsText = 'Tum rehne do, tumse na ho payega';
     }
 
     // this.frame.show();
