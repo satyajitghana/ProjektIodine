@@ -22,7 +22,7 @@
     "@fortawesome/fontawesome-free": "^5.8.1",
     "@tensorflow/tfjs": "^1.1.0",
     "@types/chart.js": "^2.7.51",
-    "ajv": "^6.9.1",
+    "ajv": "^6.12.3",
     "angular-bootstrap-md": "^7.5.0",
     "chart.js": "^2.9.4",
     "core-js": "^2.5.4",
